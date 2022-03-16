@@ -1,14 +1,15 @@
 This is the submission for the Conversational AI : Data Science Lab evaluation by Dhruv Goel (roll no-102083029)
 I have been assigned the Cartoon Classification task from Kaggle(link: https://www.kaggle.com/volkandl/cartoon-classification ) 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
 ABOUT THE DATASET:
 
 Data set contains 10 different famous cartoon pictures gathered from the mix videos as frames. The aim behind that is to predict which frame belongs which cartoon.
 In other words, can we classify cartoons according to their drawing style and the features (signatures) behind them.
 
 There are 10k training images and 2k test images associated with each class. The images are high resolution with the size 250X350
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
 APPROACH:
+Data Preprocessing- I have implemented data preprocessing using imagedatagen iterators. This includes rescaling,shear_range,zoom_range and vertical flipping
 I have tried two approaches to solve this problem:
 1) TRANSFER LEARNING: I used the VGG19 CNN architecture as a pretrained model. VGG19 is trained on imagenet dataset which has 1000 classes. First we freeze the weights of the convolutional blocks and only train 2 fully connected layer's weights then we have 10 dense softmax layers for classification into 10 classes. I ran the model for 50 epochs, the training accurary reaached to about 92%, however the validation accuracy and loss kept fluctuating meaning the model was overfitting. I could have used early stopping but the validation accuracy would have been around 83%. The total training time on GPU took about 6 hours. Due to time contraint of the submission, I decided to try another approach. link-https://www.kaggle.com/dhruvgoel200113/vgg19-implementation
                       
